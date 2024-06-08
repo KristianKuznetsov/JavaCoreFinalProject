@@ -6,3 +6,103 @@
 2024.05.31-22:41:38 | В папке: src\mytest\infile найдено 5 файлов формата txt
 2024.06.07-21:57:14 | java.io.FileNotFoundException: D\file (Системе не удается найти указанный путь)
 2024.06.07-21:57:32 | java.io.FileNotFoundException: D\file (Системе не удается найти указанный путь)
+2024.06.08-22:25:45 | Вычитывает текстовую базу данных
+2024.06.08-22:25:45 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:26:08 | Вычитывает текстовую базу данных
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:26:08 | В папке: src\crs\resources\input найдено 6 файлов формата txt
+2024.06.08-22:26:08 | Начата вычитка 6 файлов
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile1.txt
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile2.txt
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile3.txt
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile4.txt
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile5.txt
+2024.06.08-22:26:08 | Успешно прочитан файл: src\crs\resources\input\inFile6.txt
+2024.06.08-22:26:08 | Завершена вычитка 6 файлов, успешно 6, провалено 0
+2024.06.08-22:30:02 | Вычитывает текстовую базу данных
+2024.06.08-22:30:02 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:30:05 | Вычитывает текстовую базу данных
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:30:05 | В папке: src\crs\resources\input найдено 6 файлов формата txt
+2024.06.08-22:30:05 | Начата вычитка 6 файлов
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile1.txt
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile2.txt
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile3.txt
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile4.txt
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile5.txt
+2024.06.08-22:30:05 | Успешно прочитан файл: src\crs\resources\input\inFile6.txt
+2024.06.08-22:30:05 | Завершена вычитка 6 файлов, успешно 6, провалено 0
+2024.06.08-22:36:23 | Вычитывает текстовую базу данных
+2024.06.08-22:36:23 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:36:33 | Вычитывает текстовую базу данных
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:36:33 | В папке: src\crs\resources\input найдено 6 файлов формата txt
+2024.06.08-22:36:33 | Начата вычитка 6 файлов
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile1.txt
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile2.txt
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile3.txt
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile4.txt
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile5.txt
+2024.06.08-22:36:33 | Успешно прочитан файл: src\crs\resources\input\inFile6.txt
+2024.06.08-22:36:33 | Завершена вычитка 6 файлов, успешно 6, провалено 0
+2024.06.08-22:39:21 | Вычитывает текстовую базу данных
+2024.06.08-22:39:21 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:39:31 | Proofreads the text database
+2024.06.08-22:39:31 | The file was read successfully: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:39:31 | There are 6 txt files found in the folder: src\crs\resources\input
+2024.06.08-22:39:31 | The proofreading of 6 files has begun
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile1.txt
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile2.txt
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile3.txt
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile4.txt
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile5.txt
+2024.06.08-22:39:31 | The file was read successfully: src\crs\resources\input\inFile6.txt
+2024.06.08-22:39:31 | Proofreading of 6 files is completed, 6 is successful, 0 is failed
+2024.06.08-22:41:08 | Вычитывает текстовую базу данных
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:41:08 | В папке: src\crs\resources\input найдено 6 файлов формата txt
+2024.06.08-22:41:08 | Начата вычитка 6 файлов
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile1.txt
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile2.txt
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile3.txt
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile4.txt
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile5.txt
+2024.06.08-22:41:08 | Успешно прочитан файл: src\crs\resources\input\inFile6.txt
+2024.06.08-22:41:08 | Завершена вычитка 6 файлов, успешно 6, провалено 0
+2024.06.08-22:44:07 | Proofreads the text database
+2024.06.08-22:44:07 | The file was read successfully: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.08-22:44:07 | There are 6 txt files found in the folder: src\crs\resources\input
+2024.06.08-22:44:07 | The proofreading of 6 files has begun
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile1.txt
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile2.txt
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile3.txt
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile4.txt
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile5.txt
+2024.06.08-22:44:07 | The file was read successfully: src\crs\resources\input\inFile6.txt
+2024.06.08-22:44:07 | Proofreading of 6 files is completed, 6 is successful, 0 is failed
+2024.06.09-00:02:56 | Вычитывает текстовую базу данных
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.09-00:02:56 | В папке: src\crs\resources\input найдено 6 файлов формата txt
+2024.06.09-00:02:56 | Начата вычитка 6 файлов
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile1.txt
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile2.txt
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile3.txt
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile4.txt
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile5.txt
+2024.06.09-00:02:56 | Успешно прочитан файл: src\crs\resources\input\inFile6.txt
+2024.06.09-00:02:56 | Завершена вычитка 6 файлов, успешно 6, провалено 0
+2024.06.09-00:02:56 | Из папки input начинаем перенос 6 файлов в папку archive
+2024.06.09-00:02:56 | Файл inFile1.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Файл inFile2.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Файл inFile3.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Файл inFile4.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Файл inFile5.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Файл inFile6.txt перемещен в src\crs\resources\archive
+2024.06.09-00:02:56 | Закончен перенос 6 файлов из папки input в папку archive, успешно 6, провалено 0
+2024.06.09-00:05:29 | Вычитывает текстовую базу данных
+2024.06.09-00:05:29 | Успешно прочитан файл: src\crs\jcfpapp\configuration\db\textDatabases.txt
+2024.06.09-00:05:29 | В папке: src\crs\resources\input найдено 0 файлов формата txt
+2024.06.09-00:05:29 | Начата вычитка 0 файлов
+2024.06.09-00:05:29 | Завершена вычитка 0 файлов, успешно 0, провалено 0
+
+

@@ -28,6 +28,24 @@ public class LogCreator {
     private static final String[] LOG_FILE_IN_FOLDER_RU = {"В папке", "найдено", "файлов формата"};
     private static final String[] LOG_FILE_IN_FOLDER_ENG = {"There are", "files found in the folder"};
 
+    private static final String[] LOG_START_READ_FOLDER_RU = {"Начата вычитка ", " файлов"};
+    private static final String[] LOG_START_READ_FOLDER_ENG = {"The proofreading of ", " files has begun"};
+
+    private static final String[] LOG_END_READ_FOLDER_RU = {"Завершена вычитка ", " файлов, успешно ", ", провалено "};
+    private static final String[] LOG_END_READ_FOLDER_ENG = {"Proofreading of ", " files is completed, ", " is successful, ", " is failed"};
+
+    private static final String[] LOG_START_FILES_TRANSFER_RU = {"Из папки input начинаем перенос ", " файлов в папку archive"};
+    private static final String[] LOG_START_FILES_TRANSFER_END = {"From the input folder, we begin transferring ", " files to the archive folder"};
+
+    private static final String[] LOG_FILE_TRANSFER_RU = {"Файл ", " перемещен в "};
+    private static final String[] LOG_FILE_TRANSFER_END = {"File ", " has been moved to "};
+
+    private static final String LOG_FILE_NOT_TRANSFER_RU = "Ошибка при перемещении файла ";
+    private static final String LOG_FILE_NOT_TRANSFER_END = "Error when moving the file ";
+
+    private static final String[] LOG_END_FILES_TRANSFER_RU = {"Закончен перенос ", " файлов из папки input в папку archive, успешно ", ", провалено "};
+    private static final String[] LOG_END_FILES_TRANSFER_END = {"The transfer of ", " files from the input folder to the archive folder is completed, ", " is successful, ", " is failed"};
+
     public static String getLocalDateTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH:mm:ss");
@@ -117,5 +135,103 @@ public class LogCreator {
                 };
     }
 
+    public static String logStartReadFolder(int n) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_START_READ_FOLDER_RU[0];
+                    case ENG -> LOG_START_READ_FOLDER_ENG[0];
+                    default -> LOG_DEFAULT;
+                } + n +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_START_READ_FOLDER_RU[1];
+                    case ENG -> LOG_START_READ_FOLDER_ENG[1];
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logEndReadFolder(int n, int successful, int failed) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_READ_FOLDER_RU[0];
+                    case ENG -> LOG_END_READ_FOLDER_ENG[0];
+                    default -> LOG_DEFAULT;
+                } + n +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_READ_FOLDER_RU[1];
+                    case ENG -> LOG_END_READ_FOLDER_ENG[1];
+                    default -> LOG_DEFAULT;
+                } + successful +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_READ_FOLDER_RU[2];
+                    case ENG -> LOG_END_READ_FOLDER_ENG[2];
+                    default -> LOG_DEFAULT;
+                } + failed +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> "";
+                    case ENG -> LOG_END_READ_FOLDER_ENG[3];
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logStartFilesTransfer(int n) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_START_FILES_TRANSFER_RU[0];
+                    case ENG -> LOG_START_FILES_TRANSFER_END[0];
+                    default -> LOG_DEFAULT;
+                } + n +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_START_FILES_TRANSFER_RU[1];
+                    case ENG -> LOG_START_FILES_TRANSFER_END[1];
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logEndFilesTransfer(int n, int s, int f) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_FILES_TRANSFER_RU[0];
+                    case ENG -> LOG_END_FILES_TRANSFER_END[0];
+                    default -> LOG_DEFAULT;
+                } + n +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_FILES_TRANSFER_RU[1];
+                    case ENG -> LOG_END_FILES_TRANSFER_END[1];
+                    default -> LOG_DEFAULT;
+                } + s +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_END_FILES_TRANSFER_RU[2];
+                    case ENG -> LOG_END_FILES_TRANSFER_END[2];
+                    default -> LOG_DEFAULT;
+                } + f +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> "";
+                    case ENG -> LOG_END_FILES_TRANSFER_END[3];
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logFileTransfer(String start, String end) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_FILE_TRANSFER_RU[0];
+                    case ENG -> LOG_FILE_TRANSFER_END[0];
+                    default -> LOG_DEFAULT;
+                } + start +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_FILE_TRANSFER_RU[1];
+                    case ENG -> LOG_FILE_TRANSFER_END[1];
+                    default -> LOG_DEFAULT;
+                } + end;
+    }
+
+    public static String logFileNotTransfer(String file) {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_FILE_NOT_TRANSFER_RU;
+                    case ENG -> LOG_FILE_NOT_TRANSFER_END;
+                    default -> LOG_DEFAULT;
+                } + file;
+    }
 
 }

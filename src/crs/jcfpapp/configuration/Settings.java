@@ -9,8 +9,8 @@ import java.util.*;
 
 
 public class Settings {
-    private static String LANGUAGE;
-    private static String DATABASE;
+    private static String LANGUAGE = "RU";
+    private static String DATABASE = "TEXT";
     private static final String RU = "RU";
     private static final String ENG = "ENG";
     private static final String TEXT = "TEXT";
@@ -51,7 +51,7 @@ public class Settings {
 
 
     public static Optional<HashMap<String, Double>> start() {
-        //TODO: добавить логи, добавить загрузку файлов, переделать на hashMap
+        //TODO: добавить логи, добавить загрузку файлов
         setLANGUAGE();
         setDATABASE();
 
