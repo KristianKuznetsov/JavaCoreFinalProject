@@ -1,8 +1,11 @@
 package crs.jcfpapp.configuration;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Scanner;
+import crs.jcfpapp.services.Parser;
+import crs.jcfpapp.utils.log.LogCreator;
+import crs.jcfpapp.utils.reader.fileReader.TxtReader;
+import crs.jcfpapp.utils.writer.fileWriter.ReportWriter;
+
+import java.util.*;
 
 
 public class Settings {
@@ -12,6 +15,7 @@ public class Settings {
     private static final String ENG = "ENG";
     private static final String TEXT = "TEXT";
     private static final String SQL = "SQL";
+    private static final String TXT_DB = "src\\crs\\jcfpapp\\configuration\\db\\textDatabases.txt";
 
     public static String getLANGUAGE() {
         return LANGUAGE;
@@ -46,24 +50,26 @@ public class Settings {
     }
 
 
-    public static Optional<ArrayList<String>> start() {
-        //TODO: добавить логи, добавить загрузку файлов
+    public static Optional<HashMap<String, Double>> start() {
+        //TODO: добавить логи, добавить загрузку файлов, переделать на hashMap
         setLANGUAGE();
         setDATABASE();
 
-        ArrayList<String> base = new ArrayList<>();
+        ReportWriter rw = new ReportWriter();
         return switch (DATABASE) {
             case TEXT -> {
-                int a = 0;
-                //TODO: текс базы ввод
-                yield Optional.empty();
+                TxtReader txtReader = new TxtReader();
+                rw.writeIoLog(LogCreator.logReadTxtDB());
+                yield Optional.of(Parser.dbTxtParser(txtReader.readFile(TXT_DB).get()));
             }
             case SQL -> {
-                int a = 0;
                 //TODO: базы ввод
+
+                rw.writeIoLog(LogCreator.logReadSqlDB());
                 yield Optional.empty();
             }
             default -> {
+                rw.writeIoLog(LogCreator.logNotReadDB());
                 yield Optional.empty();
             }
         };

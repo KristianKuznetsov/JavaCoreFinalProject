@@ -66,4 +66,14 @@ public class Record {
     public int hashCode() {
         return Objects.hash(inAccount, outAccount, file, amount);
     }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "inAccount='" + inAccount + '\'' +
+                ", outAccount='" + outAccount + '\'' +
+                ", file='" + file + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }

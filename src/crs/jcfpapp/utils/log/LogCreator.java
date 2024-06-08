@@ -13,8 +13,17 @@ public class LogCreator {
     private static final String LOG_FOLDER_NOT_READ_RU = "Не удалось прочитать содержимое папки";
     private static final String LOG_FOLDER_NOT_READ_ENG = "The contents of the folder could not be read";
 
+    private static final String LOG_DB_NOT_READ_RU = "Не удалось прочитать базу данных";
+    private static final String LOG_DB_NOT_READ_ENG = "The database could not be read";
+
     private static final String LOG_FILE_READ_RU = "Успешно прочитан файл: ";
     private static final String LOG_FILE_READ_ENG = "The file was read successfully: ";
+
+    private static final String LOG_TXT_DB_READ_RU = "Вычитывает текстовую базу данных";
+    private static final String LOG_TXT_DB_READ_ENG = "Proofreads the text database";
+
+    private static final String LOG_SQL_DB_READ_RU = "Вычитывает sql базу данных";
+    private static final String LOG_SQL_DB_READ_ENG = "Proofreads the sql database";
 
     private static final String[] LOG_FILE_IN_FOLDER_RU = {"В папке", "найдено", "файлов формата"};
     private static final String[] LOG_FILE_IN_FOLDER_ENG = {"There are", "files found in the folder"};
@@ -26,16 +35,13 @@ public class LogCreator {
     }
 
     public static String logFolderNotRead(String folder) {
-        StringBuilder log = new StringBuilder(getLocalDateTime());
-        log.append(" | ");
-        log.append(switch (Settings.getLANGUAGE()) {
-            case RU -> LOG_FOLDER_NOT_READ_RU;
-            case ENG -> LOG_FOLDER_NOT_READ_ENG;
-            default -> LOG_DEFAULT;
-        });
-        log.append(": ");
-        log.append(folder);
-        return log.toString();
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_FOLDER_NOT_READ_RU;
+                    case ENG -> LOG_FOLDER_NOT_READ_ENG;
+                    default -> LOG_DEFAULT;
+                } +
+                ": " + folder;
     }
 
     public static String logFindFilesInFolder(String folder, String format, int n) {
@@ -72,24 +78,44 @@ public class LogCreator {
     }
 
     public static String logFileNotRead(String e) {
-        StringBuilder log = new StringBuilder(getLocalDateTime());
-        log.append(" | ");
-        log.append(e);
-        return log.toString();
+        return getLocalDateTime() + " | " + e;
     }
 
     public static String logFileRead(String file) {
-        StringBuilder log = new StringBuilder(getLocalDateTime());
-        log.append(" | ");
-        log.append(switch (Settings.getLANGUAGE()) {
-            case RU -> LOG_FILE_READ_RU;
-            case ENG -> LOG_FILE_READ_ENG;
-            default -> LOG_DEFAULT;
-        });
-        log.append(file);
-        return log.toString();
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_FILE_READ_RU;
+                    case ENG -> LOG_FILE_READ_ENG;
+                    default -> LOG_DEFAULT;
+                } + file;
     }
 
+    public static String logReadTxtDB() {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_TXT_DB_READ_RU;
+                    case ENG -> LOG_TXT_DB_READ_ENG;
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logReadSqlDB() {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_SQL_DB_READ_RU;
+                    case ENG -> LOG_SQL_DB_READ_ENG;
+                    default -> LOG_DEFAULT;
+                };
+    }
+
+    public static String logNotReadDB() {
+        return getLocalDateTime() + " | " +
+                switch (Settings.getLANGUAGE()) {
+                    case RU -> LOG_DB_NOT_READ_RU;
+                    case ENG -> LOG_DB_NOT_READ_ENG;
+                    default -> LOG_DEFAULT;
+                };
+    }
 
 
 }

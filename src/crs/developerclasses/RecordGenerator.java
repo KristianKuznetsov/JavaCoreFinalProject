@@ -47,7 +47,22 @@ public class RecordGenerator {
     public static void generateInFile(String path, int n, Random random) {
         ReportWriter rw = new ReportWriter();
         for (int i = 0; i < n; i++) {
-            rw.write(path, getInFileRecord(random));
+            rw.write(path, getInFileRecord(random), true);
+        }
+    }
+
+    public static void generateStartFile(Random random) {
+        ReportWriter rw = new ReportWriter();
+        final String path = "src\\crs\\jcfpapp\\configuration\\db\\textDatabases.txt";
+
+        for (int i = 0; i < account.length; i++) {
+            if(random.nextInt(100) < 70 ) {
+                StringBuilder builder = new StringBuilder();
+                builder.append(account[i]);
+                builder.append("|");
+                builder.append(Math.abs(convertToDouble(generateTransferAmount(random))));
+                rw.write(path, builder.toString(), true);
+            }
         }
     }
 

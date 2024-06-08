@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ArchiveWriter implements MyWriter<ArrayList<String>> {
     @Override
-    public boolean write(String way, ArrayList<String> data) {
+    public boolean write(String way, ArrayList<String> data, boolean f) {
         return false;
     }
 }
