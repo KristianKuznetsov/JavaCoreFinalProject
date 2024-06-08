@@ -1,26 +1,23 @@
 package crs.jcfpapp.utils.log;
 
+import crs.jcfpapp.configuration.Settings;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class LogCreator {
+    private static final String RU = "RU";
+    private static final String ENG = "ENG";
+
     private static final String LOG_DEFAULT = "DEFAULT MESSAGE";
     private static final String LOG_FOLDER_NOT_READ_RU = "Не удалось прочитать содержимое папки";
     private static final String LOG_FOLDER_NOT_READ_ENG = "The contents of the folder could not be read";
 
+    private static final String LOG_FILE_READ_RU = "Успешно прочитан файл: ";
+    private static final String LOG_FILE_READ_ENG = "The file was read successfully: ";
+
     private static final String[] LOG_FILE_IN_FOLDER_RU = {"В папке", "найдено", "файлов формата"};
     private static final String[] LOG_FILE_IN_FOLDER_ENG = {"There are", "files found in the folder"};
-
-
-    private static String Language = "RU";
-
-    public static void setRuLanguage() {
-        Language = "RU";
-    }
-
-    public static void setEngLanguage() {
-        Language = "ENG";
-    }
 
     public static String getLocalDateTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -31,9 +28,9 @@ public class LogCreator {
     public static String logFolderNotRead(String folder) {
         StringBuilder log = new StringBuilder(getLocalDateTime());
         log.append(" | ");
-        log.append(switch (Language) {
-            case "RU" -> LOG_FOLDER_NOT_READ_RU;
-            case "ENG" -> LOG_FOLDER_NOT_READ_ENG;
+        log.append(switch (Settings.getLANGUAGE()) {
+            case RU -> LOG_FOLDER_NOT_READ_RU;
+            case ENG -> LOG_FOLDER_NOT_READ_ENG;
             default -> LOG_DEFAULT;
         });
         log.append(": ");
@@ -44,8 +41,8 @@ public class LogCreator {
     public static String logFindFilesInFolder(String folder, String format, int n) {
         StringBuilder log = new StringBuilder(getLocalDateTime());
         log.append(" | ");
-        switch (Language) {
-            case "RU" -> {
+        switch (Settings.getLANGUAGE()) {
+            case RU -> {
                 log.append(LOG_FILE_IN_FOLDER_RU[0]);
                 log.append(": ");
                 log.append(folder);
@@ -58,7 +55,7 @@ public class LogCreator {
                 log.append(" ");
                 log.append(format);
             }
-            case "ENG" -> {
+            case ENG -> {
                 log.append(LOG_FILE_IN_FOLDER_ENG[0]);
                 log.append(" ");
                 log.append(n);
@@ -73,6 +70,26 @@ public class LogCreator {
         }
         return log.toString();
     }
+
+    public static String logFileNotRead(String e) {
+        StringBuilder log = new StringBuilder(getLocalDateTime());
+        log.append(" | ");
+        log.append(e);
+        return log.toString();
+    }
+
+    public static String logFileRead(String file) {
+        StringBuilder log = new StringBuilder(getLocalDateTime());
+        log.append(" | ");
+        log.append(switch (Settings.getLANGUAGE()) {
+            case RU -> LOG_FILE_READ_RU;
+            case ENG -> LOG_FILE_READ_ENG;
+            default -> LOG_DEFAULT;
+        });
+        log.append(file);
+        return log.toString();
+    }
+
 
 
 }

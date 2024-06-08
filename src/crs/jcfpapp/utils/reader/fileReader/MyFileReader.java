@@ -1,4 +1,4 @@
-package crs.jcfpapp.utils.reader;
+package crs.jcfpapp.utils.reader.fileReader;
 
 import crs.jcfpapp.utils.log.LogCreator;
 import crs.jcfpapp.utils.writer.fileWriter.ReportWriter;
@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public interface MyReader {
+public interface MyFileReader {
     static Optional<ArrayList<String>> getFilesPath(String folderPath, String format){
         ReportWriter rw = new ReportWriter();
 
@@ -36,7 +36,7 @@ public interface MyReader {
         }
     }
 
-    ArrayList<String> readFile(String filePath);
+    Optional<ArrayList<String>> readFile(String filePath);
 
-    ArrayList<String> readFolder(String folderPath);
+    Optional<ArrayList<String>> readFolder(String folderPath);
 }
