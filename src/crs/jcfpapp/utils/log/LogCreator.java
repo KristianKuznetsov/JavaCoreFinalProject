@@ -69,6 +69,38 @@ public class LogCreator {
     private static final String LOG_TRANSLATION_TO_RU = "на";
     private static final String LOG_TRANSLATION_TO_ENG = "to";
 
+    private static final String LOG_TEXT_DB_UPDATE_RU = "Обновляем текстовую базу данных";
+    private static final String LOG_TEXT_DB_UPDATE_ENG = "Updating the text database";
+
+    private static final String LOG_SQL_DB_UPDATE_RU = "Обновляем sql базу данных";
+    private static final String LOG_SQL_DB_UPDATE_ENG = "Updating the sql database";
+
+    private static final String LOG_DB_UPDATE_SUCCESSFUL_RU = "Обновление базы успешно";
+    private static final String LOG_DB_UPDATE_SUCCESSFUL_ENG = "Database update is successful";
+
+    private static final String LOG_DB_UPDATE_FAILED_RU = "Обновление базы провалено";
+    private static final String LOG_DB_UPDATE_FAILED_ENG = "Database update failed";
+
+    public static String logTextDbUpdate(){
+        return getLocalDateTime() + " | " +
+                languageSelection(LOG_TEXT_DB_UPDATE_RU, LOG_TEXT_DB_UPDATE_ENG);
+    }
+
+    public static String logSqlDbUpdate(){
+        return getLocalDateTime() + " | " +
+                languageSelection(LOG_SQL_DB_UPDATE_RU, LOG_SQL_DB_UPDATE_ENG);
+    }
+
+    public static String logUpdateSuccessful(){
+        return getLocalDateTime() + " | " +
+                languageSelection(LOG_DB_UPDATE_SUCCESSFUL_RU, LOG_DB_UPDATE_SUCCESSFUL_ENG);
+    }
+
+    public static String logUpdateFailed(){
+        return getLocalDateTime() + " | " +
+                languageSelection(LOG_DB_UPDATE_FAILED_RU, LOG_DB_UPDATE_FAILED_ENG);
+    }
+
     public static String logProcessingError(Record record, ArrayList<Boolean> status){
         StringBuilder builder = new StringBuilder(bodyOfTheTranslationReport(record));
         builder.append(languageSelection(LOG_PROCESSING_ERROR_RU, LOG_PROCESSING_ERROR_ENG));

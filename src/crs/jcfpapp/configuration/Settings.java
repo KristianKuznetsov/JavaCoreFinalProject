@@ -52,8 +52,10 @@ public class Settings {
 
     public static HashMap<String, Double> start() {
         setLANGUAGE();
-        setDATABASE();
 
+        //TODO: Временно отсутствует
+        //setDATABASE();
+        setTEXT();
 
         ReportWriter rw = new ReportWriter();
 

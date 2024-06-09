@@ -4,8 +4,8 @@ import crs.jcfpapp.configuration.Settings;
 import crs.jcfpapp.services.Parser;
 import crs.jcfpapp.services.Record;
 import crs.jcfpapp.services.TransferHandler;
-import crs.jcfpapp.utils.log.LogCreator;
 import crs.jcfpapp.utils.reader.fileReader.TxtReader;
+import crs.jcfpapp.utils.writer.fileWriter.BaseTextWriter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,6 +43,7 @@ public class AppBuilder {
     private static final String ERROR_DATE_ENG = "The date format is incorrect. Try again.";
     private static final String DATE_FORMAT = "dd.MM.yyyy";
 
+    //TODO: сделать загрузку в файла отчета в базу данных
     public static void build() {
         TxtReader reader = new TxtReader();
         Scanner scanner = new Scanner(System.in);
@@ -56,9 +57,8 @@ public class AppBuilder {
                     Optional<ArrayList<String>> folderStringRecords = reader.readFolder(INPUT_FOLDER);
                     if (folderStringRecords.isPresent()) {
                         ArrayList<Record> operations = Parser.inputTxtParser(folderStringRecords.get());
-
-                        //TODO: сделать загрузку в файл отчет или базу данных
                         db = TransferHandler.transfer(operations, db);
+                        BaseTextWriter.write(db);
                     }
                 }
                 case 2 -> {

@@ -1,6 +1,7 @@
 package crs.jcfpapp.utils.reader.fileReader;
 
 import crs.jcfpapp.services.Parser;
+import crs.jcfpapp.utils.FileTransfer;
 import crs.jcfpapp.utils.log.LogCreator;
 import crs.jcfpapp.utils.writer.fileWriter.ReportWriter;
 
@@ -58,8 +59,8 @@ public class TxtReader implements MyFileReader {
             }
 
             rw.writeIoLog(LogCreator.logEndReadFolder(o.get().size(), readSuccessfully, o.get().size() - readSuccessfully));
-            //TODO: перенос файлов в каталог архив откаментить
-            //FileTransfer.transferFiles(usedFiles, rw);
+
+            FileTransfer.transferFiles(usedFiles, rw);
             return Optional.of(allData);
         } else {
             return Optional.empty();
