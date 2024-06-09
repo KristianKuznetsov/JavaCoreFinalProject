@@ -50,27 +50,28 @@ public class Settings {
     }
 
 
-    public static Optional<HashMap<String, Double>> start() {
-        //TODO: добавить логи, добавить загрузку файлов
+    public static HashMap<String, Double> start() {
         setLANGUAGE();
         setDATABASE();
 
+
         ReportWriter rw = new ReportWriter();
+
         return switch (DATABASE) {
             case TEXT -> {
                 TxtReader txtReader = new TxtReader();
                 rw.writeIoLog(LogCreator.logReadTxtDB());
-                yield Optional.of(Parser.dbTxtParser(txtReader.readFile(TXT_DB).get()));
+                yield Parser.dbTxtParser(txtReader.readFile(TXT_DB).get());
             }
             case SQL -> {
-                //TODO: базы ввод
+                //TODO: базы ввод + log
 
                 rw.writeIoLog(LogCreator.logReadSqlDB());
-                yield Optional.empty();
+                yield new HashMap<>();
             }
             default -> {
                 rw.writeIoLog(LogCreator.logNotReadDB());
-                yield Optional.empty();
+                yield new HashMap<>();
             }
         };
     }

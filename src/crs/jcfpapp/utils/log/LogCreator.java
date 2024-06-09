@@ -1,9 +1,11 @@
 package crs.jcfpapp.utils.log;
 
 import crs.jcfpapp.configuration.Settings;
+import crs.jcfpapp.services.Record;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class LogCreator {
     private static final String RU = "RU";
@@ -46,10 +48,65 @@ public class LogCreator {
     private static final String[] LOG_END_FILES_TRANSFER_RU = {"Закончен перенос ", " файлов из папки input в папку archive, успешно ", ", провалено "};
     private static final String[] LOG_END_FILES_TRANSFER_END = {"The transfer of ", " files from the input folder to the archive folder is completed, ", " is successful, ", " is failed"};
 
+    private static final String LOG_COMPLETED_RU = "успешно отработан";
+    private static final String LOG_COMPLETED_ENG = "successfully completed";
+
+    private static final String LOG_PROCESSING_ERROR_RU = "ошибка во время обработки";
+    private static final String LOG_PROCESSING_ERROR_ENG = "error during processing";
+
+    private static final String LOG_INCORRECT_AMOUNT_RU = "неверная сумма перевода";
+    private static final String LOG_INCORRECT_AMOUNT_ENG = "incorrect transfer amount";
+
+    private static final String LOG_INSUFFICIENT_FUNDS_RU = "недостаточно средств";
+    private static final String LOG_INSUFFICIENT_FUNDS_ENG = "insufficient funds";
+
+    private static final String LOG_UNKNOWN_ACCOUNT_RU = "неизвестный счёт отправитель";
+    private static final String LOG_UNKNOWN_ACCOUNT_ENG = "unknown sender account";
+
+    private static final String LOG_TRANSLATION_FROM_RU = "перевод с";
+    private static final String LOG_TRANSLATION_FROM_ENG = "translation from";
+
+    private static final String LOG_TRANSLATION_TO_RU = "на";
+    private static final String LOG_TRANSLATION_TO_ENG = "to";
+
+    public static String logProcessingError(Record record, ArrayList<Boolean> status){
+        StringBuilder builder = new StringBuilder(bodyOfTheTranslationReport(record));
+        builder.append(languageSelection(LOG_PROCESSING_ERROR_RU, LOG_PROCESSING_ERROR_ENG));
+
+        if(status.get(0)){
+            builder.append(" | ");
+            builder.append(languageSelection(LOG_INCORRECT_AMOUNT_RU, LOG_INCORRECT_AMOUNT_ENG));
+        }
+
+        if(status.get(1)){
+            builder.append(" | ");
+            builder.append(languageSelection(LOG_INSUFFICIENT_FUNDS_RU, LOG_INSUFFICIENT_FUNDS_ENG));
+        }
+
+        if(status.get(2)){
+            builder.append(" | ");
+            builder.append(languageSelection(LOG_UNKNOWN_ACCOUNT_RU, LOG_UNKNOWN_ACCOUNT_ENG));
+        }
+
+        return builder.toString();
+    }
+
+    public static String logSuccessfullyTransfer(Record record){
+        return bodyOfTheTranslationReport(record) + languageSelection(LOG_COMPLETED_RU, LOG_COMPLETED_ENG);
+    }
+
     public static String getLocalDateTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH:mm:ss");
         return currentDateTime.format(formatter);
+    }
+
+    public static String languageSelection(String ru, String eng) {
+        return switch (Settings.getLANGUAGE()) {
+            case RU -> ru;
+            case ENG -> eng;
+            default -> LOG_DEFAULT;
+        };
     }
 
     public static String logFolderNotRead(String folder) {
@@ -232,6 +289,25 @@ public class LogCreator {
                     case ENG -> LOG_FILE_NOT_TRANSFER_END;
                     default -> LOG_DEFAULT;
                 } + file;
+    }
+
+    public static String bodyOfTheTranslationReport(Record r){
+        StringBuilder builder = new StringBuilder();
+        builder.append(getLocalDateTime());
+        builder.append(" | ");
+        builder.append(r.getFile());
+        builder.append(" | ");
+        builder.append(languageSelection(LOG_TRANSLATION_FROM_RU, LOG_TRANSLATION_FROM_ENG));
+        builder.append(" ");
+        builder.append(r.getInAccount());
+        builder.append(" ");
+        builder.append(languageSelection(LOG_TRANSLATION_TO_RU, LOG_TRANSLATION_TO_ENG));
+        builder.append(" ");
+        builder.append(r.getOutAccount());
+        builder.append(" ");
+        builder.append(r.getAmount());
+        builder.append(" | ");
+        return builder.toString();
     }
 
 }

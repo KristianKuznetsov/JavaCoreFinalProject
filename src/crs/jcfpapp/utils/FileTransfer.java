@@ -1,9 +1,8 @@
-package crs.jcfpapp.services;
+package crs.jcfpapp.utils;
 
 import crs.jcfpapp.utils.log.LogCreator;
 import crs.jcfpapp.utils.writer.fileWriter.ReportWriter;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

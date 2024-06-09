@@ -1,8 +1,11 @@
 package crs.jcfpapp.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +23,6 @@ public class Parser {
             }
         }
 
-        System.out.println(map);
         return map;
     }
 
@@ -57,5 +59,18 @@ public class Parser {
         return res;
     }
 
+    public static Optional<LocalDate> getParseDate(String record) {
+        if (record.length() >= 10) {
+            String dateString = record.substring(0, 10);
+            try {
+                LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+                return Optional.of(date);
+            }catch (DateTimeParseException | NullPointerException e) {
+                return Optional.empty();
+            }
+        } else {
+            return Optional.empty();
+        }
+    }
 
 }

@@ -1,6 +1,5 @@
 package crs.jcfpapp.utils.reader.fileReader;
 
-import crs.jcfpapp.services.FileTransfer;
 import crs.jcfpapp.services.Parser;
 import crs.jcfpapp.utils.log.LogCreator;
 import crs.jcfpapp.utils.writer.fileWriter.ReportWriter;
