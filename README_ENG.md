@@ -91,8 +91,8 @@ file-transfers processing. The output report file can be saved anywhere.
 - (package) jcfpapp.utils:
     - FileTransfer - moves processed files from the input directory to the archive
 ## Class Diagrams
-![](2024-06-11_22-56-17.png)
-![](2024-06-11_22-51-30.png)
-![](2024-06-11_22-51-44.png)
-![](2024-06-11_22-51-57.png)
-![](2024-06-11_22-50-53.png)
+![](picture/2024-06-11_22-56-17.png)
+![](picture/2024-06-11_22-51-30.png)
+![](picture/2024-06-11_22-51-44.png)
+![](picture/2024-06-11_22-51-57.png)
+![](picture/2024-06-11_22-50-53.png)
